@@ -28,7 +28,8 @@ jobs:
           echo wp-content file: ${wpcontent}
           '
           localPath=$(ls)
-          echo wp-content file: ${localPath}
+          echo local file: ${localPath}
+          cd README.md
           scp -o StrictHostKeyChecking=no -i private_key /README.md ${USER_NAME}@${HOSTNAME}:/wordpress
 
             
