@@ -19,8 +19,9 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
           cd wordpress
-          wordpressfile=$(ls)
-          echo wp-content file: ${wordpressfile}
+          ls
+          # wordpressfile=$(ls)
+          # echo wp-content file: ${wordpressfile}
           cd wp-content
           wpcontent=$(ls)
           echo wp-content file: ${wpcontent}'
