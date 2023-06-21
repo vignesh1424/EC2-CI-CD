@@ -31,6 +31,7 @@ jobs:
           '
           localPath=$(ls)
           echo local file: ${localPath}
+          sudo chown -R README.md
           sudo scp -o StrictHostKeyChecking=no -i private_key README.md ${USER_NAME}@${HOSTNAME}:/wordpress
 
             
