@@ -17,7 +17,7 @@ jobs:
             
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} cd wordpress 
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} cd wordpress  ls
           ls
             #Now we have got the access of EC2 and we will start the deploy .
             sudo apt update
