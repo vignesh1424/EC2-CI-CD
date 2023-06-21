@@ -22,7 +22,8 @@ jobs:
             #Now we have got the access of EC2 and we will start the deploy .
             sudo apt update
             sudo ls
-            cd $(find / -type d -name "wp-content" -print -quit)/..
+            cd var
+            # cd $(find / -type d -name "wp-content" -print -quit)/..
 
             # cd /home/runner/work
             # ls
