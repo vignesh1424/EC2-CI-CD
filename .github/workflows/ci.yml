@@ -24,4 +24,8 @@ jobs:
             sudo ls
             cd /home/runner/work
             ls
+            cd /home/runner/work/_actions
+            ls
+            cd /home/runner/work/EC2-CI-CD
+            ls
             
