@@ -19,7 +19,8 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
           echo ***SUCCESSFULLY CONNECTED***
-          sudo chmod u+w,g+w,o+w wordpress
+          sudo chmod 755 wordpress
+          sudo chmod 644 wordpress
           ls -l wordpress
           cd wordpress
           ls
