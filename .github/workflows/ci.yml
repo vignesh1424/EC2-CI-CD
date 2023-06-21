@@ -29,7 +29,6 @@ jobs:
           '
           localPath=$(ls)
           echo local file: ${localPath}
-          cd README.md
-          scp -o StrictHostKeyChecking=no -i private_key /README.md ${USER_NAME}@${HOSTNAME}:/wordpress
+          scp -o StrictHostKeyChecking=no -i private_key README.md ${USER_NAME}@${HOSTNAME}:/wordpress
 
             
