@@ -22,6 +22,6 @@ jobs:
             #Now we have got the access of EC2 and we will start the deploy .
             sudo apt update
             sudo ls
-            cd /home/runner/
+            cd /home/runner/work
             ls
             
