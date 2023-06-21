@@ -19,7 +19,6 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
           echo ***SUCCESSFULLY CONNECTED***
-          chmod u+w wordpress
           cd wordpress
           ls
           wordpressfile=$(ls)
@@ -30,6 +29,6 @@ jobs:
           '
           localPath=$(ls)
           echo local file: ${localPath}
-          scp -o StrictHostKeyChecking=no -i private_key README.md ${USER_NAME}@${HOSTNAME}:/wordpress
+          sudo scp -o StrictHostKeyChecking=no -i private_key README.md ${USER_NAME}@${HOSTNAME}:/wordpress
 
             
