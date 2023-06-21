@@ -21,6 +21,6 @@ jobs:
           cd wordpress
           ls
           cd wp-content
-          echo "wp-content file" ${ls}'
+          echo "wp-content file"''
 
             
