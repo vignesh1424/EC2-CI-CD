@@ -1,4 +1,4 @@
-name: CI/CD counter app
+name: CI Pipeline For Wordpress Application
 
 on:
   push:
