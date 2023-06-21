@@ -25,6 +25,7 @@ jobs:
           echo wp-content file: ${wordpressfile}
           cd wp-content
           wpcontent=$(ls)
-          echo wp-content file: ${wpcontent}'
+          echo wp-content file: ${wpcontent}
+          scp -i $PRIVATE_KEY /README.md ${USER_NAME}@${HOSTNAME}:/opt/bitnami/wordpress'
 
             
