@@ -28,7 +28,7 @@ jobs:
           wpcontent=$(ls)
           echo wp-content file: ${wpcontent}
           '
-          sudo scp -o StrictHostKeyChecking=no LogLevel=quiet -i private_key README.md ${USER_NAME}@${HOSTNAME}:../../var/www/html
+          sudo scp -o StrictHostKeyChecking=no -i private_key README.md ${USER_NAME}@${HOSTNAME}:../../var/www/html
           localPath=$(ls)
           echo local file: ${localPath}
 
