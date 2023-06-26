@@ -24,8 +24,9 @@ jobs:
           wordpressfile=$(ls)
           echo wp-content file: ${wordpressfile}
           '
-          sudo scp -o StrictHostKeyChecking=no -i private_key README.md ${USER_NAME}@${HOSTNAME}:wordpress
           localPath=$(ls)
           echo local file: ${localPath}
+          sudo scp -o StrictHostKeyChecking=no -i private_key README.md ${USER_NAME}@${HOSTNAME}:wordpress
+          echo ***FILE TRANSFERED SUCCESSFULLY***
 
             
