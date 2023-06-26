@@ -24,9 +24,6 @@ jobs:
           ls
           wordpressfile=$(ls)
           echo wp-content file: ${wordpressfile}
-          cd wp-content
-          wpcontent=$(ls)
-          echo wp-content file: ${wpcontent}
           '
           sudo scp -o StrictHostKeyChecking=no -i private_key README.md ${USER_NAME}@${HOSTNAME}:../../var/www/html
           localPath=$(ls)
