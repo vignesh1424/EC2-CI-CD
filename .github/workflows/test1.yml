@@ -2,9 +2,8 @@ name: SAM Api Development (CI) Pipeline
 
 on:
   workflow_dispatch:
-  pull_request:
-    types: [closed]
-    branches: [main]
+  push:
+    branches: [ master, main ]
 
 jobs:
   CibtPayApi:
