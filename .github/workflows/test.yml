@@ -1,0 +1,24 @@
+name: CI Pipeline For Wordpress Application
+
+on:
+  push:
+
+jobs:
+
+  test:
+    strategy:
+      matrix:
+        region: ['us-east-1', 'eu-central-1']
+    runs-on: ubuntu-latest
+          
+  Deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 
+      - name: Deploy in EC2
+          
+        run: |
+          echo ${{ needs.test.matrix.region }}
+
+            
