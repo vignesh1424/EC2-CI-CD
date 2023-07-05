@@ -1,7 +1,12 @@
 name: CI Pipeline For Wordpress Application
 
 on:
-  push:
+  workflow_call:
+
+    inputs:
+      region:
+        required: true
+        type: string
 
 jobs:
          
