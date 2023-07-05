@@ -10,6 +10,8 @@ jobs:
       matrix:
         region: ['us-east-1', 'eu-central-1']
     runs-on: ubuntu-latest
+    steps:
+      - run: echo "Reading the AWS_DEPLOYMENT_REGION from github environment variable"  
           
   Deploy:
     needs: test
