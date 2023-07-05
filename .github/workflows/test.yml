@@ -11,16 +11,14 @@ jobs:
         region: ['us-east-1', 'eu-central-1']
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Reading the AWS_DEPLOYMENT_REGION from github environment variable"  
-          
+      - name: Display Region
+        id: display-region
+        run: echo "::set-output name=region::${{ matrix.region }}"
+
   Deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 
+      - uses: actions/checkout@v2
       - name: Deploy in EC2
-          
-        run: |
-          echo ${{ needs.test.matrix.region }}
-
-            
+        run: echo ${{ needs.test.outputs.region }}
