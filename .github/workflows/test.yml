@@ -4,21 +4,13 @@ on:
   push:
 
 jobs:
-
-  test:
-    strategy:
-      matrix:
-        region: ['us-east-1', 'eu-central-1']
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Reading the AWS_DEPLOYMENT_REGION from github environment variable"  
-          
+         
   Deploy:
-    needs: test
     runs-on: ubuntu-latest
+    env:
+      region: ${{ inputs.region }}
     steps:
       - uses: actions/checkout@v2 
-      - name: Deploy in EC2
-          
+      - name: Deploy in EC2 
         run: |
-          echo ${{ needs.test.matrix.region }}
+          echo ${{ env.region }}
