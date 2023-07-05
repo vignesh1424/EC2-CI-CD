@@ -1,0 +1,16 @@
+name: SAM Api Development (CI) Pipeline
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  CibtPayApi:
+    strategy:
+      matrix:
+        region: ['us-east-1', 'eu-central-1']
+    uses: vignesh1424/EC2-CI-CD/.github/workflows/test@main
+    with:
+      region: ${{ matrix.region }}
