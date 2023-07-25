@@ -4,29 +4,40 @@ on:
   push:
 
 jobs:
-  Deploy:
+  getTimeStamp:
     runs-on: ubuntu-latest
-    
+    environment: "Development"
     steps:
-      - uses: actions/checkout@v2 
-      - name: Deploy in EC2
-        env:
-            PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
-            HOSTNAME : ${{ secrets.HOSTNAME  }}
-            USER_NAME : ${{ secrets.USER_NAME  }}
+      - name: Get the current date
+        id: date
+        run: echo "timeStamp=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+        shell: bash
+      - run: echo "timestamp - ${{ env.timeStamp }}"  
+    outputs:
+      timeStamp: ${{ env.timeStamp }}
+#   Deploy:
+#     runs-on: ubuntu-latest
+    
+#     steps:
+#       - uses: actions/checkout@v2 
+#       - name: Deploy in EC2
+#         env:
+#             PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
+#             HOSTNAME : ${{ secrets.HOSTNAME  }}
+#             USER_NAME : ${{ secrets.USER_NAME  }}
             
-        run: |
-          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-          echo ***SUCCESSFULLY CONNECTED***
-          cd wordpress
-          ls
-          wordpressfile=$(ls)
-          echo wp-content file: ${wordpressfile}
-          '
-          localPath=$(ls)
-          echo local file: ${localPath}
-          sudo scp -o StrictHostKeyChecking=no -i private_key README.md ${USER_NAME}@${HOSTNAME}:wordpress
-          echo ****FILE TRANSFERED SUCCESSFULLY****
+#         run: |
+#           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+#           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+#           echo ***SUCCESSFULLY CONNECTED***
+#           cd wordpress
+#           ls
+#           wordpressfile=$(ls)
+#           echo wp-content file: ${wordpressfile}
+#           '
+#           localPath=$(ls)
+#           echo local file: ${localPath}
+#           sudo scp -o StrictHostKeyChecking=no -i private_key README.md ${USER_NAME}@${HOSTNAME}:wordpress
+#           echo ****FILE TRANSFERED SUCCESSFULLY****
 
             
