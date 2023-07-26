@@ -20,11 +20,18 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+      # - name: Find and Replace
+      #   uses: flcdrg/replace-multiple-action@v1
+      #   with:
+      #     files: './*/*/*/*.yml'
+      #     find: '[{ "find": "test", "replace": "hello" }]'
+
       - name: Find and Replace
-        uses: flcdrg/replace-multiple-action@v1
+        uses: jacobtomlinson/gha-find-replace@v3
         with:
-          files: './*/*/*/*.yml'
-          find: '[{ "find": "test", "replace": "hello" }]'
+          find: "test"
+          replace: "world"
+          include: "**app.yml" # Will match all README.md files in any nested directory
 
       - name: Print File Contents
         run: |
