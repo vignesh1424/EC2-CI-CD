@@ -20,11 +20,11 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-#       - name: Find and Replace
-#         uses: flcdrg/replace-multiple-action@v1
-#         with:
-#           files: './*.md'
-#           find: '[{ "find": "EC2-CI-CD", "replace": abcMany }]'
+      - name: Find and Replace
+        uses: flcdrg/replace-multiple-action@v1
+        with:
+          files: './*.md'
+          find: '[{ "find": "EC2-CI-CD", "replace": abcMany }]'
 
       - name: Print File Contents
         run: |
