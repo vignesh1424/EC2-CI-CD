@@ -24,7 +24,7 @@ jobs:
 #         uses: flcdrg/replace-multiple-action@v1
 #         with:
 #           files: './*.md'
-#           find: '[{ "find": "EC2-CI-CD", "replace": "abcMany" }]'
+#           find: '[{ "find": "EC2-CI-CD", "replace": abcMany }]'
 
       - name: Print File Contents
         run: |
