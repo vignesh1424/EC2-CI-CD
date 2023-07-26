@@ -22,7 +22,7 @@ jobs:
       - uses: flcdrg/replace-multiple-action@v1
         with:
           files: './*.md'
-          find: '[{ "find": "EC2-CI-CD", "replace": "abcMany" }]'
+          find: '[{ "find": "EC2-CI-CD", "replace": "test" }]'
       - name: Print File Contents
         run: |
           # Use a loop to print the contents of the .md files
