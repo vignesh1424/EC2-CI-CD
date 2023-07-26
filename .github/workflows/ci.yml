@@ -24,7 +24,7 @@ jobs:
         uses: flcdrg/replace-multiple-action@v1
         with:
           files: './*/*/*/*.yml'
-          find: '[{ "find": "test", "replace": 'hello' }]'
+          find: '[{ "find": "test", "replace": "hello" }]'
 
       - name: Print File Contents
         run: |
