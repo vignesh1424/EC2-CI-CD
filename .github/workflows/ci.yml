@@ -26,7 +26,7 @@ jobs:
           # Perform the find and replace operation using sed
           find_text="EC2-CI-CD"
           replace_text="apigateway$timestamp"
-          find_dir="README.md"
+          find_dir="../README.md"
 
           # Use the find and replace command with sed
           find "$find_dir" -type f -exec sed -i "s/$find_text/$replace_text/g" {} +
