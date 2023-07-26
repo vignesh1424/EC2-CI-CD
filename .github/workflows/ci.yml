@@ -32,7 +32,7 @@ jobs:
         with:
           find: "test"
           replace: "world${{env.timeStamp}}"
-          include: "**app.yml" # Will match all README.md files in any nested directory
+          include: "***.yml" # Will match all README.md files in any nested directory
 
       - name: Print File Contents
         run: |
