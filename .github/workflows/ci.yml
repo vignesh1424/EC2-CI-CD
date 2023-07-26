@@ -29,7 +29,7 @@ jobs:
       - name: Print File Contents
         run: |
           # Use the find command to locate and print the contents of the .md files
-          find . -name '*.md' -type f -print0 | xargs -0 -I {} sh -c 'echo "Contents of {}:"; cat "{}"; echo "";'
+          find . -name '*.yml' -type f -print0 | xargs -0 -I {} sh -c 'echo "Contents of {}:"; cat "{}"; echo "";'
 
 #   Deploy:
 #     runs-on: ubuntu-latest
