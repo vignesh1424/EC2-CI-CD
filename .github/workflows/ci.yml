@@ -18,11 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     environment: "Development"
     steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Find and Replace
+        uses: flcdrg/replace-multiple-action@v1
+        with:
+          files: './*.md'
+          find: '[{ "find": "EC2-CI-CD", "replace": "abcMany" }]'
 
       - name: Print File Contents
         run: |
           # Use the find command to locate and print the contents of the .md files
-          find . -name '*.md' -type f -exec sh -c 'echo "Contents of $1:"; cat "$1"; echo ""' _ {} \
+          find . -name '*.md' -type f -print0 | xargs -0 -I {} sh -c 'echo "Contents of {}:"; cat "{}"; echo ""'
 
 #   Deploy:
 #     runs-on: ubuntu-latest
