@@ -13,11 +13,12 @@ jobs:
         run: echo "::set-output name=date::$(date +'%Y%m%d%H%M%S')"
         shell: bash
   console:
-    needs: 
-      - getTimeStamp
     runs-on: ubuntu-latest
     environment: "Development"
     steps:
+      - name: Get the current date
+        id: date
+        run: echo "timeStamp=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
       - name: Check out code
         uses: actions/checkout@v2
       # - name: Find and Replace
@@ -30,7 +31,7 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "test"
-          replace: "world"
+          replace: "world${{env.timeStamp}}"
           include: "**app.yml" # Will match all README.md files in any nested directory
 
       - name: Print File Contents
