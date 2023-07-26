@@ -25,8 +25,12 @@ jobs:
           find: '[{ "find": "EC2-CI-CD", "replace": "abcMany" }]'
       - name: Print File Contents
         run: |
-          # Use the cat command to print the contents of the .md files
-          cat ./*.md
+          # Use a loop to print the contents of the .md files
+          for file in ./*.md; do
+            echo "Contents of $file:"
+            cat "$file"
+            echo "" # Add a new line between files for better readability
+          done
 
 #   Deploy:
 #     runs-on: ubuntu-latest
