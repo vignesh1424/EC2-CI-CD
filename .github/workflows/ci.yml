@@ -19,18 +19,10 @@ jobs:
     environment: "Development"
     steps:
 
-      - uses: flcdrg/replace-multiple-action@v1
-        with:
-          files: './*.md'
-          find: '[{ "find": "EC2-CI-CD", "replace": "test" }]'
       - name: Print File Contents
         run: |
-          # Use a loop to print the contents of the .md files
-          for file in ./*.md; do
-            echo "Contents of $file:"
-            cat "$file"
-            echo "" # Add a new line between files for better readability
-          done
+          # Use the find command to locate and print the contents of the .md files
+          find . -name '*.md' -type f -exec sh -c 'echo "Contents of $1:"; cat "$1"; echo ""' _ {} \
 
 #   Deploy:
 #     runs-on: ubuntu-latest
