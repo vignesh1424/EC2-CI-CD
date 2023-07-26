@@ -33,7 +33,7 @@ jobs:
           find: "test"
           replace: "world${{env.timeStamp}}"
           include: "***.yml" # Will match all README.md files in any nested directory
-      - uses: actions/checkout@v2 
+      # - uses: actions/checkout@v2 
       - name: Print File Contents
         run: |
           # Use the find command to locate and print the contents of the .md files
