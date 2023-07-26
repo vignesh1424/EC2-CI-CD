@@ -23,6 +23,10 @@ jobs:
         with:
           files: './*.md'
           find: '[{ "find": "EC2-CI-CD", "replace": "abcMany" }]'
+      - name: Print File Contents
+        run: |
+          # Use the cat command to print the contents of the .md files
+          cat ./*.md
 
 #   Deploy:
 #     runs-on: ubuntu-latest
