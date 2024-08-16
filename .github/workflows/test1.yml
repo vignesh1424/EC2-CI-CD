@@ -2,11 +2,12 @@ name: SAM Api Development (CI) Pipeline
 
 on:
   push:
+    # Sequence of patterns matched against refs/heads
     branches:
-      - 'release/**'  # Triggers on any branch that starts with 'release/'
-  release:
-    types:
-      - published  # Trigger when a release is published
+      - 'releases/**'
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - v*
 
 jobs:
   CibtPayApi:
