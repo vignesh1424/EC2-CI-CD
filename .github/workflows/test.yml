@@ -1,4 +1,3 @@
-
 name: CI Pipeline
 
 on:
@@ -14,5 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment || 'Development' }}
     steps:
-      - name: Check Environment
-        run: echo "Environment: ${{ inputs.environment || 'Development' }}"
+      - name: Set Environment Variable
+        run: echo "ENVIRONMENT=${{ secrets.ENVIRONMENT_VARIABLE || 'Development' }}" >> $GITHUB_ENV
