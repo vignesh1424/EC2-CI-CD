@@ -1,0 +1,17 @@
+name: CI Pipeline
+
+on:
+  push:
+    inputs:
+      environment:
+        description: 'Specify the environment'
+        required: false
+        default: ''
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'Development' }}
+    steps:
+      - name: Check Environment
+        run: echo "Environment: ${{ inputs.environment || 'Development' }}"
