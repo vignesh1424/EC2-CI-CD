@@ -11,7 +11,7 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment || 'Development' }}
+    environment: ${{ github.event.inputs.environment || 'Development' }}
     steps:
       - name: Set Environment Variable
         run: echo "ENVIRONMENT=${{ secrets.ENVIRONMENT_VARIABLE || 'Development' }}" >> $GITHUB_ENV
