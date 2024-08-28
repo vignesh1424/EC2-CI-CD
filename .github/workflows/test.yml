@@ -15,3 +15,6 @@ jobs:
     steps:
       - name: Set Environment Variable
         run: echo "ENVIRONMENT=${{ secrets.ENVIRONMENT_VARIABLE || 'Development' }}" >> $GITHUB_ENV
+
+      - name: Check Environment
+        run: echo "Environment=${{ inputs.environment }}"
